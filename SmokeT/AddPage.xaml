@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+           xmlns:control="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
+             x:Class="SmokeT.AddPage" >
+    <ContentPage.Content >
+
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" > 
+
+    <Grid  RowSpacing="1" Padding="0" Margin="0"
+           AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All">
+    <Grid.RowDefinitions >
+        
+        <RowDefinition Height="40*" ></RowDefinition>
+        <RowDefinition Height="50*" ></RowDefinition>
+        <RowDefinition Height="80"></RowDefinition>
+    </Grid.RowDefinitions>
+                
+      <Grid.ColumnDefinitions >
+        <ColumnDefinition Width="50*"></ColumnDefinition>
+        <ColumnDefinition Width="50*" ></ColumnDefinition>
+        <ColumnDefinition Width="80"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+   
+    <Label Grid.Row="0" Grid.Column="0" x:Name="myToday"
+           Text="0" FontSize="70" VerticalTextAlignment="Center" Margin="0" 
+           HorizontalOptions="EndAndExpand"  VerticalOptions="End" />
+                
+    <Label x:Name="myChrono" Grid.Row="0" Grid.Column="1" FontSize="20" Text="00:00"
+            HorizontalOptions="StartAndExpand"  VerticalOptions="EndAndExpand" 
+           Margin="10"
+            />
+                
+    <StackLayout Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2">
+       <control:ProgressRing x:Name="myGraph"  RingThickness="15" Progress="0"   
+                             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" 
+                             HeightRequest="150" RingBaseColor="Gray"/>
+    </StackLayout>
+
+    <Button Grid.Row="2" Grid.Column="0"  
+            Image="ic_settings.png"
+            BackgroundColor="Transparent"
+            Margin="0"
+            HorizontalOptions="StartAndExpand"  VerticalOptions="CenterAndExpand"
+            Clicked="clickSettings"/>
+                
+    <Button Grid.Row="2" Grid.Column="2" CornerRadius="110" 
+            Text="+" 
+            FontSize="40"
+            Margin="5"
+            TextColor="White"
+            BorderColor="Black"
+            BorderWidth="5"
+            BackgroundColor="Blue"
+            HorizontalOptions="CenterAndExpand"  VerticalOptions="StartAndExpand"
+            Clicked="AddCigarAsync"/>
+</Grid>
+        </AbsoluteLayout>
+
+    </ContentPage.Content>
+</ContentPage>
